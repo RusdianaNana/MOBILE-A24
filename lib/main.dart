@@ -77,8 +77,7 @@ class HomePage extends StatelessWidget {
                     // SizedBox memberikan jarak
                     const SizedBox(width: 12),
 
-                    // Expanded membuat bagian nama aplikasi
-                    // mengisi sisa ruang pada Row
+                    // Expanded membuat bagian nama aplikasi mengisi sisa ruang pada Row
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,11 +105,23 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
 
-                    // Icon digunakan untuk menampilkan icon keranjang
-                    const Icon(
-                      Icons.shopping_cart_outlined,
-                      size: 27,
-                      color: Colors.black87,
+                    // GestureDetector digunakan untuk mendeteksi sentuhan pada icon keranjang
+                    GestureDetector(
+                      // onTap dijalankan ketika widget ditekan
+                      onTap: () {
+                        // Navigator.push digunakan untuk membuka/menambahkan halaman baru (CartPage)
+                        Navigator.push(
+                          context,
+                          // MaterialPageRoute mengatur transisi perpindahan halaman
+                          MaterialPageRoute(builder: (context) => const CartPage()),
+                        );
+                      },
+                      // Icon digunakan untuk menampilkan icon keranjang
+                      child: const Icon(
+                        Icons.shopping_cart_outlined,
+                        size: 27,
+                        color: Colors.black87,
+                      ),
                     ),
                   ],
                 ),
@@ -158,7 +169,6 @@ class HomePage extends StatelessWidget {
                     decoration: InputDecoration(
                       // hintText menampilkan teks petunjuk
                       hintText: 'Cari kebutuhan mahasiswa...',
-
                       hintStyle: TextStyle(
                         color: Colors.grey.shade500,
                       ),
@@ -168,9 +178,7 @@ class HomePage extends StatelessWidget {
                         Icons.search,
                         color: Colors.indigo,
                       ),
-
                       border: InputBorder.none,
-
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 15,
@@ -225,26 +233,12 @@ class HomePage extends StatelessWidget {
                           color: Colors.indigo.shade50,
                           borderRadius: BorderRadius.circular(16),
                         ),
-
                         child: Column(
                           children: const [
-
                             // Icon kategori alat tulis
-                            Icon(
-                              Icons.edit,
-                              color: Colors.indigo,
-                              size: 30,
-                            ),
-
+                            Icon(Icons.edit, color: Colors.indigo, size: 30),
                             SizedBox(height: 8),
-
-                            Text(
-                              'Alat Tulis',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                            Text('Alat Tulis', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
                           ],
                         ),
                       ),
@@ -259,26 +253,12 @@ class HomePage extends StatelessWidget {
                           color: Colors.indigo.shade50,
                           borderRadius: BorderRadius.circular(16),
                         ),
-
                         child: Column(
                           children: const [
-
                             // Icon kategori buku
-                            Icon(
-                              Icons.menu_book,
-                              color: Colors.indigo,
-                              size: 30,
-                            ),
-
+                            Icon(Icons.menu_book, color: Colors.indigo, size: 30),
                             SizedBox(height: 8),
-
-                            Text(
-                              'Buku',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                            Text('Buku', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
                           ],
                         ),
                       ),
@@ -293,224 +273,17 @@ class HomePage extends StatelessWidget {
                           color: Colors.indigo.shade50,
                           borderRadius: BorderRadius.circular(16),
                         ),
-
                         child: Column(
                           children: const [
-
                             // Icon kategori fashion
-                            Icon(
-                              Icons.checkroom,
-                              color: Colors.indigo,
-                              size: 30,
-                            ),
-
+                            Icon(Icons.checkroom, color: Colors.indigo, size: 30),
                             SizedBox(height: 8),
-
-                            Text(
-                              'Fashion',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                            Text('Fashion', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
                           ],
                         ),
                       ),
                     ),
                   ],
-                ),
-
-                const SizedBox(height: 25),
-
-                // =========================
-                // PRODUK
-                // =========================
-
-                Row(
-                  children: const [
-
-                    Expanded(
-                      child: Text(
-                        'Produk Pilihan',
-                        style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-
-                    Text(
-                      'Lihat semua',
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.indigo,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 15),
-
-                // =========================
-                // PRODUK 1
-                // =========================
-
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(17),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-
-                  child: Row(
-                    children: [
-
-                      // Container digunakan sebagai area icon produk
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-
-                        child: const Icon(
-                          Icons.backpack,
-                          color: Colors.indigo,
-                          size: 34,
-                        ),
-                      ),
-
-                      const SizedBox(width: 15),
-
-                      // Expanded membuat informasi produk mengisi ruang
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-
-                            Text(
-                              'Tas Kuliah Minimalis',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              'Tas • Perlengkapan Kuliah',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                              ),
-                            ),
-
-                            SizedBox(height: 7),
-
-                            Text(
-                              'Rp85.000',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.indigo,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Icon untuk menuju detail produk
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 17,
-                        color: Colors.indigo,
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 15),
-
-                // =========================
-                // PRODUK 2
-                // =========================
-
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(17),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-
-                  child: Row(
-                    children: [
-
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-
-                        child: const Icon(
-                          Icons.note_alt,
-                          color: Colors.indigo,
-                          size: 34,
-                        ),
-                      ),
-
-                      const SizedBox(width: 15),
-
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-
-                            Text(
-                              'Notebook A5',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              'Alat Tulis • 100 halaman',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                              ),
-                            ),
-
-                            SizedBox(height: 7),
-
-                            Text(
-                              'Rp18.000',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.indigo,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 17,
-                        color: Colors.indigo,
-                      ),
-                    ],
-                  ),
                 ),
 
                 const SizedBox(height: 25),
@@ -546,46 +319,21 @@ class HomePage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
-
                             Text(
                               'KHUSUS MAHASISWA',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
                             ),
-
                             SizedBox(height: 8),
-
                             Text(
                               'Diskon 20%',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            SizedBox(height: 5),
-
-                            Text(
-                              'Untuk pembelian produk pilihan',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                              ),
+                              style: TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                       ),
 
                       // Icon promo
-                      const Icon(
-                        Icons.local_offer,
-                        color: Colors.white,
-                        size: 45,
-                      ),
+                      const Icon(Icons.local_offer, color: Colors.white, size: 45),
                     ],
                   ),
                 ),
@@ -595,6 +343,223 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+// =======================================================
+// HALAMAN BARU: CART PAGE (Slicing Modul 3)
+// =======================================================
+
+// Halaman CartPage menggunakan widget lanjutan dari modul
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Scaffold digunakan sebagai kerangka dasar halaman CartPage
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      // SafeArea memastikan konten tidak tertutup bar notifikasi perangkat
+      body: SafeArea(
+
+        // Stack digunakan untuk menumpuk list produk dan widget Bottom Bar pada area yang sama
+        child: Stack(
+          children: [
+
+            // SingleChildScrollView membuat isi keranjang dapat di-scroll
+            SingleChildScrollView(
+
+              // Padding memberikan jarak sisi layar
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 100), // Ruang ekstra agar list tidak tertutup bottom bar
+
+                // Column menyusun widget header dan list produk secara vertikal
+                child: Column(
+                  children: [
+
+                    // Container sebagai ruang untuk header Cart
+                    Container(
+                      padding: const EdgeInsets.all(20),
+
+                      // Row menyusun tombol kembali dan teks judul secara horizontal
+                      child: Row(
+                        children: [
+
+                          // GestureDetector mendeteksi sentuhan (tap) pada tombol kembali
+                          GestureDetector(
+
+                            // onTap menjalankan navigasi saat ditekan
+                            onTap: () {
+                              // Navigator.pop digunakan untuk kembali ke halaman sebelumnya (HomePage)
+                              Navigator.pop(context);
+                            },
+
+                            // Icon panah untuk indikasi kembali
+                            child: const Icon(Icons.arrow_back, color: Colors.black87),
+                          ),
+
+                          // SizedBox memberikan jarak antara tombol kembali dan judul
+                          const SizedBox(width: 15),
+
+                          // Text untuk judul halaman
+                          const Text(
+                            'Keranjang',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Memanggil fungsi pembuat layout produk
+                    _buildCartItem(),
+                    _buildCartItem(),
+                    _buildCartItem(),
+                    _buildCartItem(),
+                    _buildCartItem(),
+                  ],
+                ),
+              ),
+            ),
+
+            // Positioned digunakan untuk mengatur posisi Bottom Bar (Total & Tombol) agar selalu di bawah dalam Stack
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0, // Diposisikan menempel ke bawah layar
+
+              // Container sebagai pembungkus area Total Belanja
+              child: Container(
+                padding: const EdgeInsets.all(20),
+
+                // BoxDecoration mengatur warna latar dan bayangan
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  
+                  // BoxShadow memberikan efek bayangan (shadow) agar terlihat melayang di atas list
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade300,
+                      blurRadius: 10,
+                      offset: const Offset(0, -3),
+                    ),
+                  ],
+                ),
+
+                // Row menyusun teks Total dan tombol Checkout secara horizontal
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    // Column menyusun teks 'Total' dan nominal secara vertikal
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        // Text label total
+                        Text('Total', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                        
+                        // Text nominal uang
+                        Text(
+                          'Rp12.000.000', 
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+
+                    // Container sebagai tombol "Masukkan Keranjang"
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.indigo, // Tema indigo
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      
+                      // Row menyusun icon keranjang dan teks dalam tombol
+                      child: Row(
+                        children: const [
+                          // Icon keranjang
+                          Icon(Icons.shopping_cart, color: Colors.white, size: 16),
+                          SizedBox(width: 8),
+                          // Text label tombol
+                          Text(
+                            'Masukkan Keranjang',
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Fungsi buatan sendiri untuk membuat widget List Item
+  Widget _buildCartItem() {
+    // Container untuk membungkus satu baris produk
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      padding: const EdgeInsets.all(12),
+      
+      // BoxDecoration membuat garis tepi (border) untuk tiap produk
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.grey.shade200),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      
+      // Row menyusun gambar, deskripsi, dan kuantitas produk secara horizontal
+      child: Row(
+        children: [
+          
+          // Image.asset digunakan untuk menampilkan gambar yang bersumber dari folder lokal assets
+          Image.asset(
+            'assets/product.png',
+            width: 70,
+            height: 70,
+            fit: BoxFit.cover, // fit: BoxFit.cover mengatur gambar menyesuaikan area yang tersedia
+          ),
+          
+          const SizedBox(width: 15),
+          
+          // Expanded agar kolom deskripsi memenuhi ruang yang kosong
+          Expanded(
+            
+            // Column menyusun nama produk dan harga vertikal
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                // Text nama produk
+                Text('Nama Produk', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                SizedBox(height: 6),
+                
+                // Text harga produk
+                Text(
+                  'Rp12.000.000', 
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.indigo),
+                ),
+              ],
+            ),
+          ),
+          
+          // Container membungkus indikator angka kuantitas
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            
+            // Text menampilkan jumlah produk
+            child: const Text('1', style: TextStyle(fontWeight: FontWeight.bold)),
+          ),
+        ],
       ),
     );
   }
